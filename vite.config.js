@@ -10,7 +10,15 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/new-vue-project/dist/',
+  // https://vite.dev/config/shared-options.html#css-preprocessoroptions-extension-additionaldata
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // additionalData: `$injectedColor: orange;`,
+      },
+    },
+  },
+  // base: '/new-vue-project/dist/', by default base is /
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
