@@ -1,7 +1,31 @@
-<script setup>
-  // import HelloWorld from './components/HelloWorld.vue'
-  // import TheWelcome from './components/TheWelcome.vue'
-</script>
+<style scoped>
+  /* header {
+    line-height: 1.5;
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    header {
+      display: flex;
+      place-items: center;
+      padding-right: calc(var(--section-gap) / 2);
+    }
+
+    .logo {
+      margin: 0 2rem 0 0;
+    }
+
+    header .wrapper {
+      display: flex;
+      place-items: flex-start;
+      flex-wrap: wrap;
+    }
+  } */
+</style>
 
 <template>
   <!-- <header>
@@ -16,7 +40,7 @@
     <TheWelcome />
   </main> -->
 
-  <header class="">
+    <header class="">
         <div class="container">
             <nav class="navbar navbar-light" role="navigation">
                 <a class="navbar-brand" href="#intro"><h1>Craig Cooper</h1></a>
@@ -72,8 +96,7 @@
         </div>
     </header>
 
-
-      <main>
+    <main>
 
         <section id="intro" class="py-3">
               <div class="container">
@@ -90,7 +113,7 @@
                           <blockquote><p>"So whether you eat or drink or whatever you do, do it all for the glory of God." - 1 Corinthians 10:31</p></blockquote>
   
                           <div class="">
-                              <a href="#contactMe" class="btn btn-primary btn-lg down-arrow mr-1 my-1">Contact Me</a>
+                              <a href="#contactMe" class="btn btn-primary btn-lg down-arrow mr-2 my-1">Contact Me</a>
                               <a href="#myWork" class="btn btn-secondary btn-lg down-arrow mr-1 my-1">View My Work</a>
                           </div>
                       </div>
@@ -139,43 +162,43 @@
                             <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <!-- <h3 class="modal-title" id="exampleModalLabel">{{ currentProject.name }}</h3> -->
+                                        <h3 class="modal-title" id="exampleModalLabel">{{ currentProject.name }}</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- <img class="img-fluid img-border" :src="currentProject.img_src"> -->
+                                        <img class="img-fluid img-border" :src="currentProject.img_src">
                                     </div>
                                     <div class="text-left px-3">
                                         <h4>Description:</h4>
-                                        <!-- <p>{{ currentProject.description }}</p> -->
+                                        <p>{{ currentProject.description }}</p>
                                         <div class="tech-used">
                                             <!-- {{ currentProject.techs }} -->
                                         </div>
-                                        <!-- <div v-show="currentProject.url" class="mt-3">
+                                        <div v-show="currentProject.url" class="mt-3">
                                             <small>Note: Link subject to breaking.</small>
                                             <div class="d-block mx-auto mt-1">
                                                 <a target="_blank" :href="currentProject.url" class="btn btn-primary">View Live Example</a>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <h2>My Work</h2>
-                        <!--
+                        
                         <div class="row my-4">
                           <div 
                             class="col-12 col-md-3 my-2 justify-content-between portfolio-items" 
                             v-for="portfolioItem in portfolioItems" 
-                            :key="portfolioItem.name"
-                          > -->
+                            :key="portfolioItem.id"
+                          > 
                             <!-- @TODO Make Modal / Pop Up with More Details -->
                             <!-- @TODO paginate 8 per page -->
                             <!-- @TODO image hover effects -->
-                          <!--
+
                             <a 
                                 href="#" 
                                 data-toggle="modal" 
@@ -187,8 +210,7 @@
                                 >
                                 <h4 class="portfolio-headings text-light">{{ portfolioItem.name }}</h4>
                             </a>
-                          -->
-                            <!-- <a 
+                            <a 
                                 class="portolio-links text-light"
                                 href="#" 
                                 @click="portfolioClick(portfolioItem)" 
@@ -196,10 +218,9 @@
                                 data-target="#exampleModal"
                             >
                                 
-                            </a> -->
-                            <!--
+                            </a>
                           </div>
-                        </div>    -->
+                        </div> 
                         <div class="row">
                             <div class="col-12 text-center">
                                 <a class="btn btn-primary btn-lg" href="https://www.behance.net/virtualcrasis" target="_blank">Load More Work</a>
@@ -210,84 +231,192 @@
                 </div>
             </div>
 
-          </section>
+        </section>
 
-      </main>
+    </main>
 
-      <footer class="py-5 mt-0">
-          <div class="container">
-              <div class="row">
-                  <div class="col-12" id="contactMe">
-                      <h2>Contact Me</h2>
-                  </div>
-              </div>
-              <div class="row pt-5 footer-inner-container">
-                  <!-- contact form part 1 -->
-                  <div class="col-8" id="footerFormContainer">
-                      <form name="portfolio-site-contact" netlify>
-                          <div class="form-group">
-                              <label for="exampleInputName">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName" name="name" required>
-                            </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="email">
-                          </div>
-                          <div class="form-group">
-                              <label for="exampleFormControlTextarea1">Message</label>
-                              <textarea class="form-control" id="exampleFormControlTextarea1" required rows="3" name="message"></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-primary btn-block">Send</button>
-                        </form>
-                  </div>
-                  
-                  <div class="col-4 d-flex justify-content-center align-items-center flex-column" id="footerSocialMediaContainer">
-                      <!-- social medias -->
-                      <a href="https://github.com/Craigeniah" target="_blank" title="Github">
-                          <img src="/images/icons/github-brands-solid-white.svg" alt="Github" class="social-icons d-block">
-                      </a>
-                      <a href="https://www.linkedin.com/in/craigtcooper/" target="_blank" title="Github">
-                          <img src="/images/icons/linkedin-brands-solid-white.svg" alt="LinkedIn" class="social-icons d-block">
-                      </a>
-                      
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 text-center text-md-left pt-3">
-                      <!-- @TODO add javascript year dynamically -->
-                      <small>&copy; 2025 All Rights Reserved</small>
-                  </div>
-              </div>
-          </div>
-      </footer> 
+    <footer class="py-5 mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="contactMe">
+                    <h2>Contact Me</h2>
+                </div>
+            </div>
+            <div class="row pt-5 footer-inner-container">
+                <!-- contact form part 1 -->
+                <div class="col-8" id="footerFormContainer">
+                    <form name="portfolio-site-contact" netlify>
+                        <div class="form-group">
+                            <label for="exampleInputName">Name</label>
+                            <input type="text" class="form-control" id="exampleInputName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" required rows="3" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send</button>
+                    </form>
+                </div>
+                
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column" id="footerSocialMediaContainer">
+                    <!-- social medias -->
+                    <a href="https://github.com/Craigeniah" target="_blank" title="Github">
+                        <img src="/images/icons/github-brands-solid-white.svg" alt="Github" class="social-icons d-block">
+                    </a>
+                    <a href="https://www.linkedin.com/in/craigtcooper/" target="_blank" title="Github">
+                        <img src="/images/icons/linkedin-brands-solid-white.svg" alt="LinkedIn" class="social-icons d-block">
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center text-md-left pt-3">
+                    <!-- @TODO add javascript year dynamically -->
+                    <small>&copy; 2025 All Rights Reserved</small>
+                </div>
+            </div>
+        </div>
+    </footer> 
 
 </template>
 
-<style scoped>
-  /* header {
-    line-height: 1.5;
-  }
+<script setup>
+    import { ref } from 'vue';
+    // see: https://vuejs.org/guide/extras/reactivity-transform.html
+    // import { $ref } from 'vue/macros'
+    // import HelloWorld from './components/HelloWorld.vue'
+    // import TheWelcome from './components/TheWelcome.vue'
 
-  .logo {
-    display: block;
-    margin: 0 auto 2rem;
-  }
+    let currentProject = ref([
+        // {id: ''},
+        // {name: ''},
+        // {thumbnail_src: ''},
+        // {img_src: ''},
+        // {description: ''},
+        // {techs: ''},
+        // {url: ''},
+    ]);
 
-  @media (min-width: 1024px) {
-    header {
-      display: flex;
-      place-items: center;
-      padding-right: calc(var(--section-gap) / 2);
+    let portfolioItems = ref([
+        { 
+            id: 1,
+            name: `Free Women's Clinic`,
+            thumbnail_src: 'dist/images/freewomensclinic-project-min.jpg',
+            img_src: 'dist/images/project-2.jpg',
+            description: "Built on top of a Laravel using VUE.js, I utilized data from an in-house API and Google Maps JS API to allow clients to book their own appointments per location nearest to them.",
+            techs: 'VUE.js, Laravel, HTML5, CSS3, Javascript, PHP, Google Maps,',
+            url: 'https://freewomensclinic.mobi/schedule-an-appointment#Schedule',
+        },
+        // @TODO fix this broken link, make new page like easter etc
+        { 
+            id: 2,
+            name: 'PreBorn! Annual Report',
+            thumbnail_src: 'dist/images/project-1.jpg',
+            img_src: 'dist/images/project-1.jpg',
+            description: "Mobile first, responsivly designed annual report page. Starting from an Indesign file, taken from design to code. Features a full screen menu, sticky CSS headers and CSS animations.",
+            techs: 'HTML5, CSS3, Javascript, VUE.js, WordPress, AdobeCC',
+            url: 'https://preborn.org/annual-report-2020/',
+        },
+        { 
+            id: 3,
+            name: 'Will & Estate Page',
+            thumbnail_src: 'dist/images/project-3.jpg',
+            img_src: 'dist/images/project-3.jpg',
+            description: "Following design, rebuilt into a page on employers WordPress site. Page uses various CSS animations and interactive components",
+            techs: 'HTML5, CSS3, WordPress, AdobeCC',
+            url: 'https://preborn.org/estate-planning/',     
+        },
+        { 
+            id: 4,
+            name: 'Baby Bottle Campaign',
+            thumbnail_src: 'dist/images/project-5.jpg',
+            img_src: 'dist/images/project-5.jpg',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut expedita iste perspiciatis voluptas voluptates sapiente corporis atque asperiores," +
+            "quod nisi at quaerat totam! Non perspiciatis facilis laborum tempora beatae quas.",
+            techs: '',
+            url: 'portfolio-pages/bottle.html',     
+        },
+        { 
+            id: 5,
+            name: 'Easter Countdown',
+            thumbnail_src: 'dist/images/project-6.jpg',
+            img_src: 'dist/images/project-6.jpg',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut expedita iste perspiciatis voluptas voluptates sapiente corporis atque asperiores," +
+            "quod nisi at quaerat totam! Non perspiciatis facilis laborum tempora beatae quas.",
+            techs: 'Javascript, HTML, CSS',
+            url: 'portfolio-pages/easter.html',     
+        },
+        { 
+            id: 6,
+            name: 'Lippert Components',
+            thumbnail_src: 'dist/images/lippert-websites-min.jpg',
+            img_src: 'dist/images/lippert-websites-min.jpg',
+            description: "A previous employer, here I worked on various subsidary websites, landing pages and projects along side other team members. Most notable would be the work done on " +
+            "LCI1.com, & TaylorMadeProducts.com. Another noteable item would be the website and boat trailer configurator I helped build with another internal team for extremetrailers.com",
+            techs: 'Javascript, VUE, jQuery, Bootstrap, PHP, CSS, HTML, HUGO, MODX, GA, GTM',
+            url: 'https://www.lci1.com',      
+        },
+        { 
+            id: 7,
+            name: 'The Invitation Webinar',
+            thumbnail_src: 'dist/images/project-4.jpg',
+            img_src: 'dist/images/project-4.jpg',
+            description: "Built a simple landing page for a webinar promotion from PDF design to code.",
+            techs: 'HTML5, CSS3',
+            url: 'https://theinvitation.app/webinar',   
+        },
+        { 
+            id: 8,
+            name: 'Team RV Express',
+            thumbnail_src: 'dist/images/team-rv-express.jpg',
+            img_src: 'dist/images/team-rv-express.jpg',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut expedita iste perspiciatis voluptas voluptates sapiente corporis atque asperiores," +
+            "quod nisi at quaerat totam! Non perspiciatis facilis laborum tempora beatae quas.",
+            techs: 'WordPress, HTML, CSS, Javascript, PHP',
+            url: 'https://www.behance.net/gallery/29426491/Team-RV-Express-Responsive-Website',    
+        }
+    ]);
+
+    let portfolioItemsToShow = 4;
+
+    function portfolioClick(portfolioItem) {
+
+        // You can get the value from event.whathaveyou
+        // console.log(event.name + ' ' + event.description);
+
+        currentProject = portfolioItem;
+        // console.log(app.currentProject);
     }
 
-    .logo {
-      margin: 0 2rem 0 0;
+    /**
+     * vanilla javascript from here on @TODO convert to vue binds and methods
+     */
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.querySelectorAll('.nav-link');
+    const menuCheckBox = document.getElementById('menuCheckBox');
+
+    /**
+     * Description: Toggles the Hamburger Icon by Manually Clicking the menuToggle button and checking the input checkbox
+     */
+    function menuClick() {
+        menuToggle.click();
+        if (menuCheckBox.checked === true) {
+            menuCheckBox.checked = false;
+        }
     }
 
-    header .wrapper {
-      display: flex;
-      place-items: flex-start;
-      flex-wrap: wrap;
+    /* If you click the navlinks it should fire the menuClick function */
+    if (navlinks != null || navlinks != '' || navlinks != undefined) {
+        navlinks.forEach((navlink) => {
+            navlink.addEventListener('click', (event) => {
+            menuClick();
+            });
+        });
     }
-  } */
-</style>
+
+</script>
