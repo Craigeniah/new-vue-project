@@ -55,12 +55,12 @@
                     aria-label="Toggle navigation"
                 >
                 <!-- <span class="navbar-toggler-icon"></span> -->
-                <div id="menuToggle">
+                <div id="menuToggle" ref="menuToggle">
                     <!--
                     A fake / hidden checkbox is used as click reciever,
                     so you can use the :checked selector on it.
                     -->
-                    <input id="menuCheckBox" type="checkbox" />
+                    <input id="menuCheckBox" type="checkbox" v-model="menuCheckBox" />
                     
                     <!--
                     Some spans to act as a hamburger.
@@ -79,16 +79,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 pb-4 text-right">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#app">About Me</a>
+                        <a class="nav-link text-dark" href="#app" @click="menuClick">About Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#myWork">My Work</a>
+                        <a class="nav-link text-dark" href="#myWork" @click="menuClick">My Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-red" href="#contactMe">Contact Me</a>
+                        <a class="nav-link text-dark" href="#contactMe" @click="menuClick">Contact Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" target="_blank" href="/files/resume-9-3-24.pdf">Download Resume</a>
+                        <a class="nav-link text-dark" target="_blank" href="/files/resume-9-3-24.pdf" @click="menuClick">Download Resume</a>
                     </li>
                 </ul>
             </div>
@@ -301,7 +301,7 @@
         // {url: ''},
     ]);
 
-    let portfolioItems = ref([
+    const portfolioItems = ref([
         { 
             id: 1,
             name: `Free Women's Clinic`,
@@ -381,7 +381,7 @@
         }
     ]);
 
-    let portfolioItemsToShow = 4;
+    const portfolioItemsToShow = 4;
 
     function portfolioClick(portfolioItem) {
 
@@ -392,31 +392,23 @@
         // console.log(app.currentProject);
     }
 
-    /**
-     * vanilla javascript from here on @TODO convert to vue binds and methods
-     */
-
-    const menuToggle = document.getElementById('menuToggle');
-    const navlinks = document.querySelectorAll('.nav-link');
-    const menuCheckBox = document.getElementById('menuCheckBox');
+    const menuToggle = ref();
+    const menuCheckBox = ref(false);
 
     /**
-     * Description: Toggles the Hamburger Icon by Manually Clicking the menuToggle button and checking the input checkbox
+     * Description: Toggles the Hamburger Icon by Dynamically Clicking the menuToggle button and checking/unchecking the input checkbox.
+     * The checkbox styles are then manipulated by the CSS to show the menu.
+     * The Actual logic to show/hide the menu is done with Bootstrap.
      */
     function menuClick() {
-        menuToggle.click();
-        if (menuCheckBox.checked === true) {
-            menuCheckBox.checked = false;
+
+        menuToggle.value.click();
+        if (menuCheckBox.value === true) {
+            menuCheckBox.value = false;
+        } else {
+            menuCheckBox.value = true;
         }
     }
 
-    /* If you click the navlinks it should fire the menuClick function */
-    if (navlinks != null || navlinks != '' || navlinks != undefined) {
-        navlinks.forEach((navlink) => {
-            navlink.addEventListener('click', (event) => {
-            menuClick();
-            });
-        });
-    }
 
 </script>
