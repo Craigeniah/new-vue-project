@@ -381,7 +381,7 @@
         }
     ]);
 
-    const portfolioItemsToShow = 4;
+    let portfolioItemsToShow = 4;
 
     function portfolioClick(portfolioItem) {
 
