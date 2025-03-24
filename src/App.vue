@@ -174,7 +174,7 @@
                                         <h4>Description:</h4>
                                         <p>{{ currentProject.description }}</p>
                                         <div class="tech-used">
-                                            <!-- {{ currentProject.techs }} -->
+                                            {{ currentProject.techs }}
                                         </div>
                                         <div v-show="currentProject.url" class="mt-3">
                                             <small>Note: Link subject to breaking.</small>
@@ -200,6 +200,7 @@
                             <!-- @TODO image hover effects -->
 
                             <a 
+                                @click="portfolioClick(portfolioItem)"
                                 href="#" 
                                 data-toggle="modal" 
                                 data-target="#exampleModal"
@@ -210,15 +211,15 @@
                                 >
                                 <h4 class="portfolio-headings text-light">{{ portfolioItem.name }}</h4>
                             </a>
-                            <a 
+                            <!-- <a 
+                                @click="alert('clicked')"
                                 class="portolio-links text-light"
-                                href="#" 
-                                @click="portfolioClick(portfolioItem)" 
+                                href="#"  
                                 data-toggle="modal" 
                                 data-target="#exampleModal"
                             >
                                 
-                            </a>
+                            </a> -->
                           </div>
                         </div> 
                         <div class="row">
@@ -385,11 +386,8 @@
 
     function portfolioClick(portfolioItem) {
 
-        // You can get the value from event.whathaveyou
-        // console.log(event.name + ' ' + event.description);
-
-        currentProject = portfolioItem;
-        // console.log(app.currentProject);
+        currentProject.value = portfolioItem;
+        // console.log(currentProject);
     }
 
     const menuToggle = ref();
